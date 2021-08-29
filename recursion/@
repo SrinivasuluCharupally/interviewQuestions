@@ -1,0 +1,49 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+struct node {
+	int data;
+	node *nextNode;
+}node;
+
+node * head = NULL;
+
+void insert(int input) {
+
+	if!(head) { 
+		node *temp = malloc(sizeof(node)); 
+		head = temp;
+		head->data = input;
+		return;
+	}
+	
+	node * tail = head;
+
+	while(!tail->next)  {
+		tail = tail->next;
+	}
+	
+	node *temp = malloc(sizeof(node));
+	temp->data = input;
+	tail->next = temp;
+
+	
+}
+
+void recursion() {
+
+
+}
+
+int main() {
+	for(int i =0; i < 5; i++) {
+		insert(i);
+	}
+
+	while(!head) {
+		printf(" %d ", head->data);
+		head = head->next;
+	}
+}

@@ -1,0 +1,23 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+int recursion(int *input, int start, int end, int &sum, int first, int startposition) {
+	if(start > end) return 0;
+
+	else {
+		sum += first ^ input[start];
+		if(recursion(input, start+1, end, sum, first) == 0) return 0;
+		first = input[startposition+1];
+		recursion(input, startposition+1, end, sum, first, startposition+1);
+	}
+}
+
+
+int main() {
+	int input[] ={1,3,5};
+	int arraySize = sizeof(input) / sizeof(int);
+
+	int sum = 0, start = 0, startposition=0;
+	recursion(input, start, arraySize, sum, input[0], startposition);

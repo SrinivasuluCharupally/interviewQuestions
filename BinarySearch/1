@@ -1,0 +1,31 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+int main() {
+	int input[] = {0 1 2 4 5 6 7}
+	int noOfPositionsRotate = 3;
+
+	vector<int> tmp;
+	int i = noOfPositionsRotate;
+	while(i >0) {
+		tmp.push_back(input[i]);
+	}
+
+	int arraySize = sizeof(input)/sizeof(int);
+	i = arraySize - noOfPositionsRotate;
+	int index = 0;
+	while(i < arraySize) {
+		input[index++] = input[noOfPositionsRotate++];
+		i++;
+	}
+
+	while(tmp.size() > ) {
+		input[noOfPositionsRotate] = tmp[i];
+		tmp.pop_back();
+	}
+
+	for(int j = 0; j < arraySize; j++)
+		printf("%d ", input[j]);
+}
