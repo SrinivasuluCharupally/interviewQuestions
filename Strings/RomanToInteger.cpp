@@ -33,25 +33,25 @@ int RomanToInt(char c) {
 
 
 void recursion(string input, int output, int index) {
-	if(index >= input.size()) return;
+	if(index >= input.size()) { cout << output << endl; return; }
 
 	if(RomanToInt(input[index]) < RomanToInt(input[index+1]) ) {
-		output -=  RomanToInt(input[Index]);
+		output -=  RomanToInt(input[index]);
 	}
 	else
 		output += RomanToInt(input[index]);
 
 
 
-	recursion(input, ouput, index+1);
+	recursion(input, output, index+1);
 }
 
 
 int main() {
-	string input = "XIV";
+	string input = "XXIV";
 
 	int output =0;
 
-	recursion(input,output, input.size()-1);
+	recursion(input,output, 0);
 
 }
